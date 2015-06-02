@@ -6,10 +6,17 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXFileReference section */
+		8943D7C61B1DBE780096E4B0 /* GnSDKEntourage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GnSDKEntourage.framework; sourceTree = "<group>"; };
+		8943D7C71B1DBE900096E4B0 /* GnSDKEntourage.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = GnSDKEntourage.podspec; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
 		8943D7BF1B1DBE5E0096E4B0 = {
 			isa = PBXGroup;
 			children = (
+				8943D7C71B1DBE900096E4B0 /* GnSDKEntourage.podspec */,
+				8943D7C61B1DBE780096E4B0 /* GnSDKEntourage.framework */,
 			);
 			sourceTree = "<group>";
 		};
