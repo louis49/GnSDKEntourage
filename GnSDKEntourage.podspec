@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name     = 'GnSDKEntourage'
-s.version  = '1.0'
+s.version  = '2.2.0.3162'
 s.platform = :ios, '7.0'
 s.summary  = 'socket.io iOS devices.'
 s.author   = { 'DESNOS Benoît' => 'desnos.benoit@gmail.com' }
