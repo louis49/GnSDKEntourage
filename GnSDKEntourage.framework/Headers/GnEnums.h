@@ -17,7 +17,7 @@
 /***************************************
 * GnLookupMode
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnLookupMode)
 {
     /**
     * Invalid lookup mode
@@ -59,13 +59,13 @@ typedef enum : NSInteger
     */
     kLookupModeOnlineCacheOnly
     
-} GnLookupMode;
+} ;
 
 
 /***************************************
 * GnLookupData
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnLookupData)
 {
     /**
     * Invalid lookup data
@@ -126,13 +126,13 @@ typedef enum : NSInteger
     */
     kLookupDataAdditionalCredits
     
-} GnLookupData;
+} ;
 
 
 /***************************************
 * GnThreadPriority
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnThreadPriority)
 {
     kThreadPriorityInvalid = 0,
     
@@ -161,13 +161,13 @@ typedef enum : NSInteger
     */
     kThreadPriorityHigh
     
-} GnThreadPriority;
+} ;
 
 
 /***************************************
 * GnFingerprintType
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnFingerprintType)
 {
     /**
     * Invalid fingerprint type
@@ -221,13 +221,13 @@ typedef enum : NSInteger
     */
     kFingerprintTypeGNFPX
     
-} GnFingerprintType;
+} ;
 
 
 /***************************************
 * GnStatus
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnStatus)
 {
     /** @internal kStatusUnknown @endinternal
     * Status unknown.
@@ -305,13 +305,13 @@ typedef enum : NSInteger
     */
     kStatusCancelled
     
-} GnStatus;
+} ;
 
 
 /***************************************
 * GnLanguage
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnLanguage)
 {
     kLanguageInvalid = 0,
     
@@ -346,13 +346,13 @@ typedef enum : NSInteger
     kLanguageThai,
     kLanguageTurkish,
     kLanguageVietnamese
-} GnLanguage;
+} ;
 
 
 /***************************************
 * GnRegion
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnRegion)
 {
     /** Default region. A region will be selected based on what's available. */
     kRegionDefault = 0,
@@ -386,25 +386,25 @@ typedef enum : NSInteger
     
     /** India region */
     kRegionIndia
-} GnRegion;
+} ;
 
 
 /***************************************
 * GnDescriptor
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnDescriptor)
 {
     kDescriptorDefault = 0,
     
     kDescriptorSimplified,
     kDescriptorDetailed
-} GnDescriptor;
+} ;
 
 
 /***************************************
 * GnContentType
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnContentType)
 {
     kContentTypeNull = 0,
     kContentTypeUnknown = 1,
@@ -418,13 +418,13 @@ typedef enum : NSInteger
     kContentTypeArtistNews,
     kContentTypeListenerComments,
     kContentTypeReleaseComments
-} GnContentType;
+} ;
 
 
 /***************************************
 * GnImageSize
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnImageSize)
 {
     kImageSizeUnknown = 0,
     
@@ -444,13 +444,13 @@ typedef enum : NSInteger
     kImageSizeLarge     = kImageSize720,
     kImageSizeXLarge    = kImageSize1080
     
-} GnImageSize;
+} ;
 
 
 /***************************************
 * GnLicenseInputMode
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnLicenseInputMode)
 {
     kLicenseInputModeInvalid = 0,
     
@@ -468,13 +468,13 @@ typedef enum : NSInteger
     * Submit license content from stdin
     */
     kLicenseInputModeStandardIn
-} GnLicenseInputMode;
+} ;
 
 
 /***************************************
 * GnUserRegisterMode
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnUserRegisterMode)
 {
     /**
     * Register a user via a netowrk connection with Gracenote Service. A user
@@ -489,13 +489,13 @@ typedef enum : NSInteger
     * Service.
     */
     kUserRegisterModeLocalOnly
-} GnUserRegisterMode;
+} ;
 
 
 /***************************************
 * GnAcrAudioAlgorithm
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnAcrAudioAlgorithm)
 {
     /**
     *   Audio: 3-second blocks, very low quality (mobile audio).
@@ -509,13 +509,13 @@ typedef enum : NSInteger
     */
     kAcrAudioAlgorithmMediumQuality
     
-} GnAcrAudioAlgorithm;
+} ;
 
 
 /***************************************
 * GnAcrAudioSampleFormat
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnAcrAudioSampleFormat)
 {
     /**
     * Signed 8-bit PCM samples.
@@ -528,13 +528,13 @@ typedef enum : NSInteger
     * @ingroup Acr_TypesEnums
     */
     kAcrAudioSampleFormatPcm16
-} GnAcrAudioSampleFormat;
+} ;
 
 
 /***************************************
 * GnAcrAudioFPQueryMode
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnAcrAudioFPQueryMode)
 {
     /**
     * Manually triggerred fingerprint queries.
@@ -547,13 +547,13 @@ typedef enum : NSInteger
     * @ingroup Acr_TypesEnums
     */
     kAcrAudioFPQueryAutomatic
-} GnAcrAudioFPQueryMode;
+} ;
 
 
 /***************************************
 * GnAcrStatusType
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnAcrStatusType
 {
     /**
     * ACR status type of debug, for reporting debug information.
@@ -680,13 +680,13 @@ typedef enum : NSInteger
     */
     kAcrStatusBatchCompleteOnlineVideo = 910
     
-} GnAcrStatusType;
+} ;
 
 
 /***************************************
 * GnAcrOptimizationType
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnAcrOptimizationType)
 {
     /**
     *   Default is optimizing for accuracy.
@@ -715,13 +715,13 @@ typedef enum : NSInteger
     */
     kAcrOptimizationTypeAdaptive
     
-} GnAcrOptimizationType;
+} ;
 
 
 /***************************************
 * GnAcrMatchSourceType
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnAcrMatchSourceType)
 {
     /**
     * Fingerprint not matched.
@@ -746,26 +746,26 @@ typedef enum : NSInteger
     * @ingroup Acr_TypesEnums
     */
     kAcrMatchSourceLocal
-} GnAcrMatchSourceType;
+} ;
 
 
 /***************************************
 * GnDspFeatureQuality
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnDspFeatureQuality)
 {
     kDspFeatureQualityUnknown = 0,
     
     kDspFeatureQualityStandard,
     kDspFeatureQualityShort,
     kDspFeatureQualitySilent
-} GnDspFeatureQuality;
+} ;
 
 
 /***************************************
 * GnDspFeatureType
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnDspFeatureType)
 {
     kDspFeatureTypeInvalid = 0,
     
@@ -783,25 +783,25 @@ typedef enum : NSInteger
     kDspFeatureTypeFAPIR,
     kDspFeatureTypeNanoFAPIQ,
     kDspFeatureTypeMicroFAPIQ
-} GnDspFeatureType;
+} ;
 
 
 /***************************************
 * GnEpgPostalCodeCountry
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnEpgPostalCodeCountry)
 {
     kEpgPostalCodeCountryUnknown = 0,
     
     kEpgPostalCodeCountryUsa,
     kEpgPostalCodeCountryCanada
-} GnEpgPostalCodeCountry;
+} ;
 
 
 /***************************************
 * GnImagePreference
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnImagePreference)
 {
     /**
     * Retrieve exact size as specified by GnImageSize
@@ -818,13 +818,13 @@ typedef enum : NSInteger
     */
     smallest
     
-} GnImagePreference;
+} ;
 
 
 /***************************************
 * GnLinkContentType
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnLinkContentType)
 {
     /** @internal kLinkContentUnknown @endinternal
     *
@@ -957,13 +957,13 @@ typedef enum : NSInteger
     */
     kLinkContentImageArtist
     
-} GnLinkContentType;
+} ;
 
 
 /***************************************
 * GnLinkDataType
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnLinkDataType)
 {
     /** @internal kLinkDataUnknown @endinternal
     *
@@ -1017,13 +1017,13 @@ typedef enum : NSInteger
     */
     kLinkDataImageBinary = 100
     
-} GnLinkDataType;
+} ;
 
 
 /***************************************
 * GnListType
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnListType)
 {
     kListTypeInvalid = 0,
     
@@ -1250,13 +1250,13 @@ typedef enum : NSInteger
     * The list of supported device types for EPG data.
     */
     kListTypeEpgDeviceTypes
-} GnListType;
+} ;
 
 
 /***************************************
 * GnListRenderFlags
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnListRenderFlags)
 {
     kRenderDefault,
     
@@ -1270,13 +1270,13 @@ typedef enum : NSInteger
     */
     kRenderFull
     
-} GnListRenderFlags;
+} ;
 
 
 /***************************************
 * GnLocaleGroup
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnLocaleGroup)
 {
     kLocaleGroupInvalid = 0,
     
@@ -1284,13 +1284,13 @@ typedef enum : NSInteger
     kLocaleGroupVideo,
     kLocaleGroupPlaylist,
     kLocaleGroupEpg
-} GnLocaleGroup;
+} ;
 
 
 /***************************************
 * GnLogMessageType
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnLogMessageType)
 {
     kLoggingMessageTypeInvalid = 0,
     
@@ -1299,13 +1299,13 @@ typedef enum : NSInteger
     kLoggingMessageTypeInfo,
     kLoggingMessageTypeDebug
     
-} GnLogMessageType;
+} ;
 
 
 /***************************************
 * GnLogPackageType
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnLogPackageType)
 {
     kLogPackageAll = 1,
     kLogPackageAllGNSDK,
@@ -1334,13 +1334,13 @@ typedef enum : NSInteger
     kLogPackageCorrelates,
     kLogPackageInternal,
     kLogPackageRadio
-} GnLogPackageType;
+} ;
 
 
 /***************************************
 * GnVideoSearchType
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnVideoSearchType)
 {
     /**
     *   Unknown search type; the default state.
@@ -1366,13 +1366,13 @@ typedef enum : NSInteger
     */
     kSearchTypeDefault
     
-} GnVideoSearchType;
+} ;
 
 
 /***************************************
 * GnVideoSearchField
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnVideoSearchField)
 {
     /**
     *  Contributor name search field.
@@ -1426,7 +1426,7 @@ typedef enum : NSInteger
 /***************************************
 * GnVideoTOCFlag
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnVideoTOCFlag)
 {
     /**
     *  Generally recommended flag to use when setting a video TOC.
@@ -1456,13 +1456,13 @@ typedef enum : NSInteger
     */
     kTOCFlagAngles
     
-} GnVideoTOCFlag;
+} ;
 
 
 /***************************************
 * GnVideoListElementFilterType
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnVideoListElementFilterType)
 {
     /**
     *  List-based filter to include/exclude genres.
@@ -1484,13 +1484,13 @@ typedef enum : NSInteger
     */
     kListElementFilterOrigin
     
-} GnVideoListElementFilterType;
+} ;
 
 
 /***************************************
 * GnVideoFilterType
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnVideoFilterType)
 {
     /**
     *  Filter for Season numbers; not list-based.
@@ -1507,13 +1507,13 @@ typedef enum : NSInteger
     */
     kFilterSeriesEpisodeNumber
     
-} GnVideoFilterType;
+} ;
 
 
 /***************************************
 * GnVideoExternalIdType
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnVideoExternalIdType)
 {
     /**
     *  Sets a Universal Product Code (UPC) value as an external ID for a Products query.
@@ -1533,13 +1533,13 @@ typedef enum : NSInteger
     */
     kExternalIdTypeISAN
     
-} GnVideoExternalIdType;
+} ;
 
 
 /***************************************
 * GnDataLevel
 */
-typedef enum : NSInteger
+typedef NS_ENUM(NSInteger,GnDataLevel)
 {
     kDataLevelInvalid = 0,
     
@@ -1548,7 +1548,7 @@ typedef enum : NSInteger
     kDataLevel_3,
     kDataLevel_4            /* most granular */
     
-} GnDataLevel;
+} ;
 
 
 #endif /* _GNENUMS_H_ */
