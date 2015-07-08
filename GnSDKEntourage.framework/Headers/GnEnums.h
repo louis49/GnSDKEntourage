@@ -1420,7 +1420,7 @@ typedef NS_ENUM(NSInteger,GnVideoSearchField)
     */
     kSearchFieldAll
     
-} GnVideoSearchField;
+} ;
 
 
 /***************************************
