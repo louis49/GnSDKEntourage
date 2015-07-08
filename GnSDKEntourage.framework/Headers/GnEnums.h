@@ -553,7 +553,7 @@ typedef NS_ENUM(NSInteger,GnAcrAudioFPQueryMode)
 /***************************************
 * GnAcrStatusType
 */
-typedef NS_ENUM(NSInteger,GnAcrStatusType
+typedef NS_ENUM(NSInteger,GnAcrStatusType)
 {
     /**
     * ACR status type of debug, for reporting debug information.
