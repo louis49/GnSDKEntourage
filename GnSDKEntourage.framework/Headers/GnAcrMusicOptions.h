@@ -4,7 +4,7 @@
  *  This software is supplied under the terms of a license agreement or
  *  nondisclosure agreement with Gracenote, Inc. and may not be copied
  *  or disclosed except in accordance with the terms of that agreement.
- *  Copyright(c) 2000-2014. Gracenote, Inc. All Rights Reserved.
+ *  Copyright(c) 2000-2015. Gracenote, Inc. All Rights Reserved.
  *
  */
  
@@ -45,7 +45,8 @@
 * Get the preferred external ID. When set, this indicates that a music query should preferrably
 * return results associated with a particular third-party identifier. Your app
 * can use this option to only access third-party IDs from a particular vendor.
-* @return The identifier of the preferred third-party vendor
+* @return The identifier of the preferred third-party vendor or an empty string if the option has
+* not been set
 * @ingroup Acr_Options
 */ 
 
@@ -53,7 +54,7 @@
 
 /**
 * Set the preferred external ID. When set, this indicates that a music query should preferrably
-* return album results associated with a particular third-party identifier. Use this option to only access 
+* return album results associated with a particular third-party identifier. Use this option to only access
 * external IDs from a particular vendor.
 * @param preferredExternalId [in] The identifier of the preferred third-party vendor
 * @ingroup Acr_Options
@@ -73,7 +74,7 @@
 
 /**
 *  Set whether a music query must return only the single best result and that the result
-*  should preferably have cover art. 
+*  should preferably have cover art.
 *  @param enable [in] If set to true, a single full result is returned. If set to false, multiple partial results may be returned.
 *  @ingroup Acr_Options
 */ 

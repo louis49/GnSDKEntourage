@@ -20,10 +20,20 @@
  */
 
 /**
- *  Gracenote recording helper wrapper class, provides audio recording capability in your application.
- *  Using a GnMic you can
- *    - Record until user stops the recording.
- *    - Pause and resume a recording.
+ * The GnMic class manages the recording of audio from the device microphone and
+ * allows for simple plug-in of the audio source with GnMusicIdStream.
+ * 
+ * This is a Gracenote helper delegate class to extract receive audio from a
+ * microphone. It can be used by GNSDK as an audio stream source that can be
+ * identified (GnMusicIdStream).
+ * 
+ * For all helper delegate classes you can provide your own implementation, it just
+ * needs to implement the correct interface, in this case GnAudioSourceDelegate. 
+ * 
+ * If you do provide your own implementation Gracenote recommends starting with
+ * this implementation and altering as required; therefore the source is
+ * available on request.
+ *
  */
 @interface GnMic : NSObject <GnAudioSourceDelegate>
 

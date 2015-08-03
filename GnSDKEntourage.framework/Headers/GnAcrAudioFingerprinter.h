@@ -4,7 +4,7 @@
  *  This software is supplied under the terms of a license agreement or
  *  nondisclosure agreement with Gracenote, Inc. and may not be copied
  *  or disclosed except in accordance with the terms of that agreement.
- *  Copyright(c) 2000-2014. Gracenote, Inc. All Rights Reserved.
+ *  Copyright(c) 2000-2015. Gracenote, Inc. All Rights Reserved.
  *
  */
  
@@ -47,10 +47,10 @@
 
 /**
 * Provides uncompressed audio data for fingerprint generation only. Returns true if the fingerprint
-* generation process gathered enough audio data and has generated a fingerprint. 
+* generation process gathered enough audio data and has generated a fingerprint.
 * <p><b>Remarks:</b></p>
-* Once a fingerprint is generated, it remains part of the query until the query is released or until 
-* the fingerprinter is re-initialized by invoking the calling sequence described in the 
+* Once a fingerprint is generated, it remains part of the query until the query is released or until
+* the fingerprinter is re-initialized by invoking the calling sequence described in the
 * Remarks of FingerprintData().
 * @param audioData [in] Buffer containing audio data
 * @param audioDataLength [in] Size of buffer containing audio data
@@ -70,8 +70,8 @@
 /**
 *  Retrieves the internally-generated Gracenote fingerprint data.
 *  <p><b>Remarks:</b></p>
-*  Use this function to retrieve internally-generated fingerprint data for cases where the application stores the fingerprint 
-*  for various purposes. To retrieve an internally-generated fingerprint, call FingerprintData last, as shown in the following 
+*  Use this function to retrieve internally-generated fingerprint data for cases where the application stores the fingerprint
+*  for various purposes. To retrieve an internally-generated fingerprint, call FingerprintData last, as shown in the following
 *  calling sequence:
 *  <ol>
 *  <li>FingerprintBegin()
@@ -79,7 +79,7 @@
 *  <li>FingerprintEnd()
 *  <li>FingerprintData()
 *  </ol>
-*  @return String fingerprint data
+*  @return String fingerprint data. This API can return an empty string
 * @ingroup Acr_QueryFunctions
 */ 
 

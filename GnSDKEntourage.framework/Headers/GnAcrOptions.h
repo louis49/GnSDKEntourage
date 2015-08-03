@@ -4,7 +4,7 @@
  *  This software is supplied under the terms of a license agreement or
  *  nondisclosure agreement with Gracenote, Inc. and may not be copied
  *  or disclosed except in accordance with the terms of that agreement.
- *  Copyright(c) 2000-2014. Gracenote, Inc. All Rights Reserved.
+ *  Copyright(c) 2000-2015. Gracenote, Inc. All Rights Reserved.
  *
  */
  
@@ -27,41 +27,46 @@
 @interface GnAcrOptions : NSObject
 
 /**
-*	Get the ACR audio algorithm to be used.
+*	Return the ACR audio algorithm to be used when initializing the audio configuration for GnAcrAudio or GnAcrAudioFingerprinter.
+*  By default, the audio algorithm is set to GnAcrAudioAlgorithm.kAcrAudioAlgorithmLowQuality.
+* @return the audio algorithm
 * @ingroup Acr_Options
 */ 
 
 -(GnAcrAudioAlgorithm) audioAlgorithm;
 
 /**
-* Set the ACR audio algorithm to be used.
-* @param algorithm [in] Audio algorithm to be used
+* Set the ACR audio algorithm to be used when initializing the audio configuration for GnAcrAudio or GnAcrAudioFingerprinter.
+* By default, the audio algorithm is set to GnAcrAudioAlgorithm.kAcrAudioAlgorithmLowQuality.
+* @param algorithm [in] the audio algorithm to be used when initializing the audio configuration
 * @ingroup Acr_Options
 */ 
 
 -(void) audioAlgorithmWithAlgorithm: (GnAcrAudioAlgorithm)algorithm;
 
 /**
-*	Get the ACR audio optimization mode - accuracy, speed, or adaptive.
+*	Return the ACR audio optimization mode - accuracy, speed, or adaptive.
+* @return the optimization mode
 * @ingroup Acr_Options
 */ 
 
 -(GnAcrOptimizationType) optimizationType:(NSError**) error;
 
 /**
-*  Set the audio optimization mode - accuracy, speed, or adaptive.
+*  Set the optimization mode - accuracy, speed, or adaptive.
 * <p><b>Note:</b></p>
-*   Default value is GnAcrOptimizationType.kAcrOptimizationTypeAccuracy. Optimizing for speed can result in 
+*   Default value is GnAcrOptimizationType.kAcrOptimizationTypeAccuracy. Optimizing for speed can result in
 *   slightly faster, but less accurate, responses.
 *   Contact Gracenote Support Services before using adaptive mode.
-*  @param optimization [in] ACR's audio optimization mode
+* @param optimization [in] the optimization mode
 * @ingroup Acr_Options
 */ 
 
 -(void) optimizationTypeWithOptimization: (GnAcrOptimizationType)optimization error: (NSError**)error;
 
 /**
-*	Get the maximum number of seconds allowed before a recognition should be performed.
+* Return the maximum number of seconds allowed before a recognition should be performed.
+* @return the maximum number of seconds allowed before a recognition should be performed
 * @ingroup Acr_Options
 */ 
 
@@ -86,7 +91,8 @@
 -(void) lookupOnlineMaxDelayWithDelay: (NSUInteger)delay error: (NSError**)error;
 
 /**
-*  Get the maximum number of seconds allowed before a recognition should be performed using the local cache.
+*  Return the maximum number of seconds allowed before a recognition should be performed using the local cache.
+* @return the maximum number of seconds allowed before a recognition should be performed using the local cache.
 * @ingroup Acr_Options
 */ 
 
@@ -108,7 +114,7 @@
 
 /**
 * Check whether only local queries should be performed.
-* @return Returns true if only local queries are performed. Returns false if both local and online queries are performed.
+* @return true if only local queries are performed. Returns false if both local and online queries are performed.
 * @ingroup Acr_Options
 */ 
 
@@ -123,8 +129,26 @@
 -(void) lookupCacheOnlyWithEnable: (BOOL)enable error: (NSError**)error;
 
 /**
-*	Get the no match count threshold.
-*  @return The number of consecutive 'no matches' that must occur before ACR enters no match mode
+             Check whether video queries will include TV grid lookups
+             @return true if video queries include a tv grid lookup. Returns false if TV grid lookups are included
+             @ingroup Acr_Options
+*/ 
+
+-(BOOL) includeTVGridLookup:(NSError**) error;
+
+/**
+             Set whether video queries will include TV grid lookups.
+             Default is 'true'
+             @param enable If set to true, video queries will perform a server-side lookup to retrieve full channel, airing and program metadata for a video response.  If set to false, no lookup is performed and video query matches will only contain a channel identifier and timestamp information.
+             
+             @ingroup Acr_Options
+*/ 
+
+-(void) includeTVGridLookupWithEnable: (BOOL)enable error: (NSError**)error;
+
+/**
+*	Return the number of consecutive 'no matches' that must occur before ACR enters no match mode
+*  @return the number of consecutive 'no matches' that must occur before ACR enters no match mode
 *  @ingroup Acr_Options
 */ 
 
@@ -135,21 +159,22 @@
 *  Default is 60. This means that after 60 consecutive 'no matches' the SDK will go into
 *  no match mode, which delays the time between queries. If your app is getting a large number
 *  of no matches then it is either capturing silence or audio that cannot be identified.
-*	@param threshold [in] The maximum number of consecutive 'no matches' that must occur before ACR enters no match mode
+*	@param threshold [in] the maximum number of consecutive 'no matches' that must occur before ACR enters no match mode
 * @ingroup Acr_Options
 */ 
 
 -(void) noMatchCountThresholdWithThreshold: (NSUInteger)threshold error: (NSError**)error;
 
 /**
-*	Get the no match time increment value in seconds.
+*	Return the number of seconds to increment the no match time.
+* @return the number of seconds to increment the no match time
 * @ingroup Acr_Options
 */ 
 
 -(NSUInteger) noMatchTimeIncrement:(NSError**) error;
 
 /**
-*	Set the no match time increment value.
+*	Set the no match time increment value in seconds.
 *  Default is '60' seconds. This means that 60 seconds will be added to the time between
 *  lookups every time the no match count threshold is reached.
 *  Valid range is 8 to 2592000 seconds (30 days).
@@ -160,8 +185,9 @@
 -(void) noMatchTimeIncrementWithSeconds: (NSUInteger)seconds error: (NSError**)error;
 
 /**
-*	Get the maximum time for no match mode.
+*	Return the maximum time for no match mode.
 *  Valid range is 60 to 5184000 seconds (60 days)
+* @return the maximum time for no match mode in seconds
 * @ingroup Acr_Options
 */ 
 
@@ -180,7 +206,7 @@
 
 /**
 *	Check whether third-party IDs are included in the lookup results.
-* @return Returns true if third-party IDs are included in the lookup results.
+* @return true if third-party IDs are included in the lookup results.
 * @ingroup Acr_Options
 */ 
 
@@ -197,7 +223,7 @@
 
 /**
 *	Check whether content (like images) will be fetched with the lookup results.
-* @return Return true if content will be fetched with the lookup results.
+* @return true if content will be fetched with the lookup results.
 * @ingroup Acr_Options
 */ 
 
@@ -206,7 +232,7 @@
 /**
 *	Set whether content (like images) will be fetched with the lookup results.
 *  The default value if unset is false.
-*	@param enable [in] If set to true, fetch content with the lookup results. IF set to false, do not fetch content with the lookup results.
+*	@param enable [in] If set to true, fetch content with the lookup results. If set to false, do not fetch content with the lookup results.
 * @ingroup Acr_Options
 */ 
 
@@ -215,7 +241,7 @@
 /**
 * Check if manual only mode is enabled. When enabled, ACR will only query on-demand and not
 * automatically. If not enabled, ACR will query both automatically and on-demand.
-* @return Returns true if enabled.
+* @return true if enabled.
 * @ingroup Acr_Options
 */ 
 
@@ -233,33 +259,34 @@
 /**
 * Set a specific network interface to use with this object's connections. This can be useful for
 * systems with multiple network interaces. Otherwise, the operating system determines the interface to use.
-*  @param intfName [in] Local IP address or system name for the desired network interface
+* @param intfName [in] Local IP address or system name for the desired network interface
 * @ingroup Acr_Options
 */ 
 
 -(void) networkInterfaceWithIntfName: (NSString*)intfName error: (NSError**)error;
 
 /**
-* Return network interface being use with this object's connections if one has been set. 
+* Return the network interface being used with this object's connections if one has been set.
 * If no specific network interface has been set this option will return an empty string.
+* @return the network interface name (e.g. local IP address or system name). Can be an empty string
 * @ingroup Acr_Options
 */ 
 
 -(NSString*) networkInterface:(NSError**) error;
 
 /**
-* Set custom option
-* @param optionKey   [in] Option name
-* @param value	   [in] Option value
+* Set a custom option
+* @param optionKey [in] Option name
+* @param value	[in] Option value
 * @ingroup Acr_Options
 */ 
 
 -(void) customWithOptionKey: (NSString*)optionKey value: (NSString*)value error: (NSError**)error;
 
 /**
-* Get custom option value
-* @param key	[in] Option name
-* @return Option value
+* Return the value for a custom option
+* @param key [in] Option name
+* @return Option value. Can be an empty string
 * @ingroup Acr_Options
 */ 
 

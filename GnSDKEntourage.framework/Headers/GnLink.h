@@ -4,7 +4,7 @@
  *  This software is supplied under the terms of a license agreement or
  *  nondisclosure agreement with Gracenote, Inc. and may not be copied
  *  or disclosed except in accordance with the terms of that agreement.
- *  Copyright(c) 2000-2014. Gracenote, Inc. All Rights Reserved.
+ *  Copyright(c) 2000-2015. Gracenote, Inc. All Rights Reserved.
  *
  */
  
@@ -97,7 +97,7 @@
 * Long Running Potential: Network I/O, File system I/O (for online query cache or local lookup)
 */ 
 
--(GnLinkContent*) coverArt: (GnImageSize)imageSize imagePreference: (GnImagePreference)imagePreference item_ord: (NSUInteger)item_ord error: (NSError**)error;
+-(GnLinkContent*) coverArt: (GnImageSize)imageSize imagePreference: (GnImagePreferenceType)imagePreference item_ord: (NSUInteger)item_ord error: (NSError**)error;
 
 /**
 * Retrieves GenreArt data.
@@ -111,7 +111,7 @@
 * Long Running Potential: Network I/O, File system I/O (for online query cache or local lookup)
 */ 
 
--(GnLinkContent*) genreArt: (GnImageSize)imageSize imagePreference: (GnImagePreference)imagePreference item_ord: (NSUInteger)item_ord error: (NSError**)error;
+-(GnLinkContent*) genreArt: (GnImageSize)imageSize imagePreference: (GnImagePreferenceType)imagePreference item_ord: (NSUInteger)item_ord error: (NSError**)error;
 
 /**
 * Retrieves Image data.
@@ -126,7 +126,7 @@
 * Long Running Potential: Network I/O, File system I/O (for online query cache or local lookup)
 */ 
 
--(GnLinkContent*) image: (GnImageSize)imageSize imagePreference: (GnImagePreference)imagePreference item_ord: (NSUInteger)item_ord error: (NSError**)error;
+-(GnLinkContent*) image: (GnImageSize)imageSize imagePreference: (GnImagePreferenceType)imagePreference item_ord: (NSUInteger)item_ord error: (NSError**)error;
 
 /**
 * Retrieves ArtistImage data.
@@ -140,7 +140,7 @@
 * Long Running Potential: Network I/O, File system I/O (for online query cache or local lookup)
 */ 
 
--(GnLinkContent*) artistImage: (GnImageSize)imageSize imagePreference: (GnImagePreference)imagePreference item_ord: (NSUInteger)item_ord error: (NSError**)error;
+-(GnLinkContent*) artistImage: (GnImageSize)imageSize imagePreference: (GnImagePreferenceType)imagePreference item_ord: (NSUInteger)item_ord error: (NSError**)error;
 
 /**
 * Retrieves Review data.

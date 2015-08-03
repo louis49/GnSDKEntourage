@@ -4,7 +4,7 @@
  *  This software is supplied under the terms of a license agreement or
  *  nondisclosure agreement with Gracenote, Inc. and may not be copied
  *  or disclosed except in accordance with the terms of that agreement.
- *  Copyright(c) 2000-2014. Gracenote, Inc. All Rights Reserved.
+ *  Copyright(c) 2000-2015. Gracenote, Inc. All Rights Reserved.
  *
  */
  
@@ -61,44 +61,60 @@
 +(NSString*) buildDate;
 
 /**
-*  This method is used to specify the location of GnLookupFpLocal database. 
+*  This method is used to specify the location of GnLookupFpLocal database.
 *  @param gnsdk_cstr_t location of the database
-*  @return void 
+*  @return void
 */ 
 
 -(void) storageLocation: (NSString*)location error: (NSError**)error;
 
 /**
-*  This method is used to ingest a bundleitem. The caller would need to supply 
-*  the callback which gets called from the GnLookupFpLocal to read the data from the 
+*  This method is used to ingest a bundleitem. The caller would need to supply
+*  the callback which gets called from the GnLookupFpLocal to read the data from the
 *  bundleitem. After the GnLookupFpLocal ingests a bundleitem successfully it stores
-*  it in cache for future lookups. 
+*  it in cache for future lookups.
 *  @param ingestSource GnBundleSourceDelegate
-*  @return void 
+*  @return void
 */ 
 
 -(void) bundleIngest: (id <GnBundleSourceDelegate>)ingestSource error: (NSError**)error;
 
 /**
 *  This method is used to clear all the bundleitems in GnLookupFpLocal.
-*  @return void 
+*  @return void
 */ 
 
 -(void) cacheClearAll:(NSError**) error;
 
 /**
 *  This method is used to delete a bundleitem in GnLookupFpLocal.
-*  @return void 
+*  @return void
 */ 
 
 -(void) cacheDelete: (NSString*)bundleId error: (NSError**)error;
 
 /**
 *  Retrieves the GnFpLocalCustomData object from a supplied gdo.
-*  @return GnFpLocalCustomData object 
+*  @return GnFpLocalCustomData object
 */ 
 
 -(GnFpLocalCustomData*) customData: (GnDataObject*)dataobject;
+
+/**
+* Return the number of threads used for local lookup.
+* @return the number of threads used for local lookup.
+* @ingroup LookupFpLocal_Options
+*/ 
+
+-(NSUInteger) lookupThreadCount:(NSError**) error;
+
+/**
+* Set the lookup thread count
+* Default is 1 (Max 8). This indicates the number of threads used to do local lookup.
+* @ingroup LookupFpLocal_Options
+*/ 
+
+-(void) lookupThreadCountWithCount: (NSUInteger)count error: (NSError**)error;
 
 
 @end

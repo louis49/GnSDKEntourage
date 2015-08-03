@@ -4,7 +4,7 @@
  *  This software is supplied under the terms of a license agreement or
  *  nondisclosure agreement with Gracenote, Inc. and may not be copied
  *  or disclosed except in accordance with the terms of that agreement.
- *  Copyright(c) 2000-2014. Gracenote, Inc. All Rights Reserved.
+ *  Copyright(c) 2000-2015. Gracenote, Inc. All Rights Reserved.
  *
  */
  
@@ -217,7 +217,7 @@
 
 /**
 * Contributor's origin, e.g., New York City
-* @param level 	[in] Data level
+* @param level     [in] Data level
 * @return Origin
 * <p><b>Remarks:</b></p>
 * This is a list-based value requiring that a corresponding locale or list be loaded.

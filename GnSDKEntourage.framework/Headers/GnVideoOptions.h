@@ -4,7 +4,7 @@
  *  This software is supplied under the terms of a license agreement or
  *  nondisclosure agreement with Gracenote, Inc. and may not be copied
  *  or disclosed except in accordance with the terms of that agreement.
- *  Copyright(c) 2000-2014. Gracenote, Inc. All Rights Reserved.
+ *  Copyright(c) 2000-2015. Gracenote, Inc. All Rights Reserved.
  *
  */
  
@@ -39,16 +39,20 @@
 /**
 *  Set ordinal for the first result to be returned
 *  @param resultStart Set the starting position for the result
-*  <p><b>Remarks:</b></p>
-*  This option is useful for paging through results.
-* <p><b>Note:</b></p>
-*   Gracenote Service limits the range size for some queries. If you specify a range size greater
-*   than the limit, the results are constrained. Additionally, neither Gracenote Service nor GNSDK
-*   returns an error about this behavior.
+*  <p><b>Using range values:</b></p>
+*  <ul>
+*    <li>If you do not set a starting value, the default behavior returns the first set of results.</li>
+*    <li>Range values are useful for paging results.</li>
+*  </ul>
 *  <p><b>Important:</b></p>
-*   The number of results actually returned for a query may not equal the number of results initially
+*   Gracenote Service limits the range size for some queries. The maximum range allowed for video queries 
+*   is 100 even though range total might be much larger. If you specify a range size greater
+*   than the limit, the results are constrained. Neither Gracenote Service nor GNSDK
+*   return an error about this behavior. 
+*
+*   The number of results actually returned for a query may not equal the number of results
 *   requested. To accurately iterate through results, always check the range start, end, and total
-*   values and the responses Gracenote returns for the query (or queries). Ensure that you
+*   values, and the responses Gracenote returns for the query (or queries). Ensure that you
 *   are incrementing by using the actual last range end value plus one (range_end+1), and not by simply
 *   using the initial requested value.
 *  @ingroup Video_Options
@@ -59,19 +63,22 @@
 /**
 *  Set number of results to be returned
 *  @param resultCount 	[in] Maximum number of results a response can return.
-*
-*  <p><b>Remarks:</b></p>
-*  This option is useful for paging through results.
-* <p><b>Note:</b></p>
-*   Gracenote Service limits the range size for some queries. If you specify a range size greater
-*   than the limit, the results are constrained. Additionally, neither Gracenote Service nor GNSDK
-*   returns an error about this behavior.
+*  <ul>
+*    <li>If you do not set a starting value, the default behavior returns the first set of results.</li>
+*    <li>Range values are useful for paging results.</li>
+*  </ul>
 *  <p><b>Important:</b></p>
-*  The number of results actually returned for a query may not equal the number of results initially
+*   Gracenote Service limits the range size for some queries. The maximum range allowed for video queries 
+*   is 100 even though range total might be much larger. If you specify a range size greater
+*   than the limit, the results are constrained. Neither Gracenote Service nor GNSDK
+*   return an error about this behavior. 
+*
+*   The number of results actually returned for a query may not equal the number of results
 *   requested. To accurately iterate through results, always check the range start, end, and total
-*   values and the responses returned by Gracenote Service for the query (or queries). Ensure that you
+*   values, and the responses Gracenote returns for the query (or queries). Ensure that you
 *   are incrementing by using the actual last range end value plus one (range_end+1), and not by simply
 *   using the initial requested value.
+*  
 *  @ingroup Video_Options
 */ 
 

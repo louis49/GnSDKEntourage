@@ -4,7 +4,7 @@
  *  This software is supplied under the terms of a license agreement or
  *  nondisclosure agreement with Gracenote, Inc. and may not be copied
  *  or disclosed except in accordance with the terms of that agreement.
- *  Copyright(c) 2000-2014. Gracenote, Inc. All Rights Reserved.
+ *  Copyright(c) 2000-2015. Gracenote, Inc. All Rights Reserved.
  *
  */
  
@@ -48,7 +48,7 @@
 * @param user_ident [in] Optional identifier that will be returned with the query result
 *
 *  <p><b>Remarks:</b></p>
-*  Repeated invocations of this method will add multiple fingerprint data to be used in a query. 
+*  Repeated invocations of this method will add multiple fingerprint data to be used in a query.
 *	The maximum number of fingerprint data that you may add to a batch query is defined by kMaximumBatchQuerySize.
 *  <p><b>Note:</b></p>
 *	Your application must be licensed to perform batch queries. Contact Gracenote about enabling batch queries.
@@ -61,8 +61,8 @@
 * <b>Experimental</b>: Clears all the fingerprint data to be used in a batch query
 *
 *  <p><b>Remarks:</b></p>
-*  This method will remove all the fingerprint data that have been added by the call to 
-*  AddFingerprintData() but have not yet been used in a query, as indicated by the call 
+*  This method will remove all the fingerprint data that have been added by the call to
+*  AddFingerprintData() but have not yet been used in a query, as indicated by the call
 *  <p><b>Note:</b></p>
 *	Your application must be licensed to perform batch queries. Contact Gracenote about enabling batch queries.
 *  to Lookup().
@@ -75,7 +75,7 @@
 * <b>Experimental</b>: Cancels all pending or in-progress batch queries initiated by the call to Lookup().
 *
 *  <p><b>Remarks:</b></p>
-*  As a result of calling this method, all the fingerprint data from each pending or in-progress 
+*  As a result of calling this method, all the fingerprint data from each pending or in-progress
 *  batch query will be lost.
 *  <p><b>Note:</b></p>
 *	Your application must be licensed to perform batch queries. Contact Gracenote about enabling batch queries.
@@ -90,9 +90,9 @@
 *
 *  <p><b>Remarks:</b></p>
 *  All the fingerprint data previously added using AddFingerprintData() will only be used by the
-*  query initiated by the call to this method. They will not be available for use in any future queries 
+*  query initiated by the call to this method. They will not be available for use in any future queries
 *  initiated by subsequent calls to this method.
-*  Also, note that this is an asynchronous method and that the query result associated with each fingerprint data 
+*  Also, note that this is an asynchronous method and that the query result associated with each fingerprint data
 *  will be returned to ResultEvent().
 *  <p><b>Note:</b></p>
 *	Your application must be licensed to perform batch queries. Contact Gracenote about enabling batch queries.
@@ -101,6 +101,37 @@
 */ 
 
 -(void) videoLookup:(NSError**) error;
+
+/**
+* Causes the current thread to wait until all active batch queries are completed or the specified timeout has occurred.
+*
+* <b>Remarks</b>
+* This method should be invoked on the same thread as VideoLookup() as shown in the following calling sequence
+* <ol>
+* <li>VideoLookup()</li>
+* <li>WaitForComplete()</li>
+* </ol>
+*
+* @param timeout_ms [in] Maximum wait timeout in milliseconds.
+* @return Returns true if internal processes have completed or false if it is still busy and a timeout occurred
+*/ 
+
+-(BOOL) waitForCompleteWithTimeout_ms: (NSUInteger)timeout_ms error: (NSError**)error;
+
+/**
+* Causes the current thread to wait until all active batch queries are completed.
+*
+* <b>Remarks</b>
+* This method should be invoked on the same thread as VideoLookup() as shown in the following calling sequence
+* <ol>
+* <li>VideoLookup()</li>
+* <li>WaitForComplete()</li>
+* </ol>
+*
+* @return Returns true if internal processes have completed or false if it is still busy
+*/ 
+
+-(BOOL) waitForComplete:(NSError**) error;
 
 /**
 *  <b>Experimental</b>: Get the GnAcrOptions object for setting/getting options

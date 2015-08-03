@@ -4,7 +4,7 @@
  *  This software is supplied under the terms of a license agreement or
  *  nondisclosure agreement with Gracenote, Inc. and may not be copied
  *  or disclosed except in accordance with the terms of that agreement.
- *  Copyright(c) 2000-2014. Gracenote, Inc. All Rights Reserved.
+ *  Copyright(c) 2000-2015. Gracenote, Inc. All Rights Reserved.
  *
  */
  
@@ -80,7 +80,7 @@
 -(NSString*) rank;
 
 /**
-*	The channel number assigned by the TV provider (e.g. DirectTV or Comcast). 
+*	The channel number assigned by the TV provider (e.g. DirectTV or Comcast).
 *  This is only available if this GnTvChannel was found using a search query in which a GnTvProvider was known.
 *	@ingroup GDO_ValueKeys_ACR
 */ 

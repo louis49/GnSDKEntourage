@@ -9,7 +9,20 @@
 #import "GnAudioSourceDelegate.h"
 
 
-
+/**
+ * Provides a means to read an audio file and return data as raw PCM.
+ * 
+ * This is a Gracenote helper delegate class to extract raw audio from encoded
+ * audio files. It can be used by GNSDK to generate MusicID-File fingerprints.
+ * 
+ * For all helper delegate classes you can provide your own implementation, it just
+ * needs to implement the correct interface, in this case GnAudioSourceDelegate. 
+ * 
+ * If you do provide your own implementation Gracenote recommends starting with
+ * this implementation and altering as required; therefore the source is
+ * available on request.
+ * 
+ */
 @interface GnAudioFile:NSObject <GnAudioSourceDelegate>
 
 

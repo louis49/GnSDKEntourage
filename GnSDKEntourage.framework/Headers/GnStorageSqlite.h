@@ -4,7 +4,7 @@
  *  This software is supplied under the terms of a license agreement or
  *  nondisclosure agreement with Gracenote, Inc. and may not be copied
  *  or disclosed except in accordance with the terms of that agreement.
- *  Copyright(c) 2000-2014. Gracenote, Inc. All Rights Reserved.
+ *  Copyright(c) 2000-2015. Gracenote, Inc. All Rights Reserved.
  *
  */
  
@@ -25,6 +25,14 @@
 */ 
 
 @interface GnStorageSqlite : NSObject
+
+/**
+* Sets the path to an external shared SQLite library to use instead of out internal copy
+* <p><b>Remarks:</b></p>
+* If used, this must be called before <code>Enable()</code>
+*/ 
+
++(void) useExternalLibrary: (NSString*)sqlite3_filepath error: (NSError**)error;
 
 /**
 * Enable SQLite storage provider

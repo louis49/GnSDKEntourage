@@ -4,7 +4,7 @@
  *  This software is supplied under the terms of a license agreement or
  *  nondisclosure agreement with Gracenote, Inc. and may not be copied
  *  or disclosed except in accordance with the terms of that agreement.
- *  Copyright(c) 2000-2014. Gracenote, Inc. All Rights Reserved.
+ *  Copyright(c) 2000-2015. Gracenote, Inc. All Rights Reserved.
  *
  */
  
@@ -98,7 +98,7 @@
 -(GnVideoWork*) videoWork;
 
 /**
-* Retrieves the iterator for the content (e.g. cover art, biography, etc.) 
+* Retrieves the iterator for the content (e.g. cover art, biography, etc.)
 * @return Iterator
 */ 
 
@@ -111,7 +111,7 @@
 
 -(GnExternalIdEnumerator*) externalIds;
 
-/** 
+/**
 * Retrieves the iterator to a collection of level 1 Categories, e.g. 'TV Series'.  A program may have multiple level 1 categories
 * assigned to it.
 *
@@ -123,7 +123,7 @@
 
 -(GnStringEnumerator*) level1Categories;
 
-/** 
+/**
 * Retrieves the iterator to a collection of level 2 Categories, e.g. 'Science Fiction'.  A program may have multiple level 2 categories
 * assigned to it.
 *

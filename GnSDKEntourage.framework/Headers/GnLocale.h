@@ -4,7 +4,7 @@
  *  This software is supplied under the terms of a license agreement or
  *  nondisclosure agreement with Gracenote, Inc. and may not be copied
  *  or disclosed except in accordance with the terms of that agreement.
- *  Copyright(c) 2000-2014. Gracenote, Inc. All Rights Reserved.
+ *  Copyright(c) 2000-2015. Gracenote, Inc. All Rights Reserved.
  *
  */
  
@@ -85,6 +85,22 @@
 */ 
 
 -(INSTANCE_RETURN_TYPE) initWithGnLocaleGroup: (GnLocaleGroup)group language: (GnLanguage)language region: (GnRegion)region descriptor: (GnDescriptor)descriptor user: (GnUser*)user statusEventsDelegate: (id <GnStatusEventsDelegate>)pEventHandler;
+
+/**
+* Loads the specified locale with native strings
+* @param group				Locale group specifies which locale data is loaded
+* @param language			Language of locale data
+* @param region			Region of the locale data where applicable
+* @param descriptor		Descriptor, or verbosity, of the locale data where applicable
+* @param user				User object
+* @param pEventHandler     Status events delegate
+* <p><b>Note</b><p> This method blocks the current thread until the load is complete;
+* set an GnStatusEventsDelegate delegate to receive progress messages.
+*
+* Long Running Potential: Network I/O, File system I/O
+*/ 
+
+-(INSTANCE_RETURN_TYPE) initWithGroup: (NSString*)group language: (NSString*)language region: (NSString*)region descriptor: (NSString*)descriptor user: (GnUser*)user statusEventsDelegate: (id <GnStatusEventsDelegate>)pEventHandler;
 
 /**
 * Loads the specified locale

@@ -4,7 +4,7 @@
  *  This software is supplied under the terms of a license agreement or
  *  nondisclosure agreement with Gracenote, Inc. and may not be copied
  *  or disclosed except in accordance with the terms of that agreement.
- *  Copyright(c) 2000-2014. Gracenote, Inc. All Rights Reserved.
+ *  Copyright(c) 2000-2015. Gracenote, Inc. All Rights Reserved.
  *
  */
  
@@ -124,7 +124,12 @@ typedef NS_ENUM(NSInteger,GnLookupData)
     /**
     * Indicates whether a response should include additional credits.
     */
-    kLookupDataAdditionalCredits
+    kLookupDataAdditionalCredits,
+    
+    /**
+    * Indicates whether a response should include sortable data for names and titles
+    */
+    kLookupDataSortable
     
 } ;
 
@@ -412,6 +417,7 @@ typedef NS_ENUM(NSInteger,GnContentType)
     kContentTypeImageCover,
     kContentTypeImageArtist,
     kContentTypeImageVideo,
+    kContentTypeImageLogo,
     kContentTypeBiography,
     kContentTypeReview,
     kContentTypeNews,
@@ -507,7 +513,21 @@ typedef NS_ENUM(NSInteger,GnAcrAudioAlgorithm)
     *   Audio: 3-second blocks, medium quality (media monitoring).
     * @ingroup Acr_TypesEnums
     */
-    kAcrAudioAlgorithmMediumQuality
+    kAcrAudioAlgorithmMediumQuality,
+    
+    
+    /**
+    *   Audio: 3-second blocks, high quality (media monitoring).
+    * @ingroup Acr_TypesEnums
+    */
+    kAcrAudioAlgorithmHighQuality,
+    
+    
+    /**
+    *   Audio: 3-second blocks, very high quality (media monitoring).
+    * @ingroup Acr_TypesEnums
+    */
+    kAcrAudioAlgorithmVeryHighQuality
     
 } ;
 
@@ -528,6 +548,7 @@ typedef NS_ENUM(NSInteger,GnAcrAudioSampleFormat)
     * @ingroup Acr_TypesEnums
     */
     kAcrAudioSampleFormatPcm16
+    
 } ;
 
 
@@ -547,6 +568,7 @@ typedef NS_ENUM(NSInteger,GnAcrAudioFPQueryMode)
     * @ingroup Acr_TypesEnums
     */
     kAcrAudioFPQueryAutomatic
+    
 } ;
 
 
@@ -559,91 +581,91 @@ typedef NS_ENUM(NSInteger,GnAcrStatusType)
     * ACR status type of debug, for reporting debug information.
     * @ingroup Acr_TypesEnums
     */
-    kAcrStatusDebug               = 0,
+    kAcrStatusDebug                    = 0,
     
     /**
     * ACR query process is beginning.
     * @ingroup Acr_TypesEnums
     */
-    kAcrStatusQueryBegin          = 10,
+    kAcrStatusQueryBegin               = 10,
     
     /**
     * Connecting to the Gracenote Service.
     * @ingroup Acr_TypesEnums
     */
-    kAcrStatusConnecting          = 20,
+    kAcrStatusConnecting               = 20,
     
     /**
     * Sending ACR query data to the Gracenote Service.
     * @ingroup Acr_TypesEnums
     */
-    kAcrStatusSending             = 30,
+    kAcrStatusSending                  = 30,
     
     /**
     * Receiving ACR result data from the Gracenote Service.
     * @ingroup Acr_TypesEnums
     */
-    kAcrStatusReceiving           = 40,
+    kAcrStatusReceiving                = 40,
     
     /**
     * ACR audio fingerprint generation has started.
     * @ingroup Acr_TypesEnums
     */
-    kAcrStatusAudioFpStarted      = 45,
+    kAcrStatusAudioFpStarted           = 45,
     
     /**
     * ACR audio fingerprint generation has completed.
     * @ingroup Acr_TypesEnums
     */
-    kAcrStatusAudioFpGenerated    = 50,
+    kAcrStatusAudioFpGenerated         = 50,
     
     /**
     * Silence is detected
     * @ingroup Acr_TypesEnums
     */
-    kAcrStatusAudioSilent         = 70,
+    kAcrStatusAudioSilent              = 70,
     
     /**
     * Silence to sound ratio
     * @ingroup Acr_TypesEnums
     */
-    kAcrStatusSilenceRatio        = 80,
+    kAcrStatusSilenceRatio             = 80,
     
     /**
     * Percentage of audio over the last several seconds that is non pitched
     * @ingroup Acr_TypesEnums
     */
-    kAcrStatusNonPitched          = 81,
+    kAcrStatusNonPitched               = 81,
     
     /**
     * Percentage of audio over the last several seconds that is music
     * @ingroup Acr_TypesEnums
     */
-    kAcrStatusMusic               = 82,
+    kAcrStatusMusic                    = 82,
     
     /**
     * Percentage of audio over the last several seconds that is speech
     * @ingroup Acr_TypesEnums
     */
-    kAcrStatusSpeech              = 83,
+    kAcrStatusSpeech                   = 83,
     
     /**
     * ACR local query processing is complete.
     * @ingroup Acr_TypesEnums
     */
-    kAcrStatusQueryCompleteLocal  = 100,
+    kAcrStatusQueryCompleteLocal       = 100,
     
     /**
     * ACR online query processing is complete.
     * @ingroup Acr_TypesEnums
     */
-    kAcrStatusQueryCompleteOnline = 110,
+    kAcrStatusQueryCompleteOnline      = 110,
     
     /**
     * The SDK has switched out of No Match Mode
     * @ingroup Acr_TypesEnums
     */
-    kAcrStatusNormalMatchMode     = 200,
+    kAcrStatusNormalMatchMode          = 200,
     
     /**
     *   There have been enough no matches that the SDK has switched
@@ -654,19 +676,19 @@ typedef NS_ENUM(NSInteger,GnAcrStatusType)
     *   the current no match delay in seconds.
     * @ingroup Acr_TypesEnums
     */
-    kAcrStatusNoMatchMode         = 210,
+    kAcrStatusNoMatchMode              = 210,
     
     /**
     *   ACR error.
     * @ingroup Acr_TypesEnums
     */
-    kAcrStatusError               = 600,
+    kAcrStatusError                    = 600,
     
     /**
     *   Audio transition detected
     * @ingroup Acr_TypesEnums
     */
-    kAcrStatusTransition          = 700,
+    kAcrStatusTransition               = 700,
     
     /**
     *   An ACR batch query for EPG and Video metadata has begun
@@ -701,7 +723,7 @@ typedef NS_ENUM(NSInteger,GnAcrOptimizationType)
     kAcrOptimizationTypeAccuracy,
     
     /**
-    *   Optimizie for speed; this can result in slightly faster, but less accurate, responses.
+    *   Optimize for speed; this can result in slightly faster, but less accurate, responses.
     * @ingroup Acr_TypesEnums
     */
     kAcrOptimizationTypeSpeed,
@@ -746,6 +768,38 @@ typedef NS_ENUM(NSInteger,GnAcrMatchSourceType)
     * @ingroup Acr_TypesEnums
     */
     kAcrMatchSourceLocal
+    
+} ;
+
+
+/***************************************
+* GnAcrLookupSourceType
+*/
+typedef NS_ENUM(NSInteger,GnAcrLookupSourceType)
+{
+    /**
+    * Indicates a query to only the local database
+    * @ingroup Acr_TypesEnums
+    */
+    kAcrLookupSourceLocalOnly = 1,
+    
+    /**
+    * Indicates a query to only the Gracenote Service
+    * @ingroup Acr_TypesEnums
+    */
+    kAcrLookupSourceOnlineOnly,
+    
+    /**
+    * Indicates a query to the local database and the Gracenote Service in parallel
+    * @ingroup Acr_TypesEnums
+    */
+    kAcrLookupSourceLocalAndOnlineParallel,
+    
+    /**
+    * Indicates a sequential query to the local database first and, if no match is found, a query to the Gracenote Service is performed
+    * @ingroup Acr_TypesEnums
+    */
+    kAcrLookupSourceLocalAndOnlineSerial
 } ;
 
 
@@ -799,24 +853,24 @@ typedef NS_ENUM(NSInteger,GnEpgPostalCodeCountry)
 
 
 /***************************************
-* GnImagePreference
+* GnImagePreferenceType
 */
-typedef NS_ENUM(NSInteger,GnImagePreference)
+typedef NS_ENUM(NSInteger,GnImagePreferenceType)
 {
     /**
     * Retrieve exact size as specified by GnImageSize
     */
-    exact = 1,
+    kImagePreferenceExact = 1,
     
     /**
     * Retrieve exact or smaller size as specified by GnImageSize
     */
-    largest,
+    kImagePreferenceLargest,
     
     /**
     * Retrieve exact or larger size as specified by GnImageSize
     */
-    smallest
+    kImagePreferenceSmallest
     
 } ;
 
@@ -1278,12 +1332,45 @@ typedef NS_ENUM(NSInteger,GnListRenderFlags)
 */
 typedef NS_ENUM(NSInteger,GnLocaleGroup)
 {
+    /**
+    * Invalid locale group
+    */
     kLocaleGroupInvalid = 0,
     
+    /**
+    * Locale group for the GNSDK music products. Set this when creating a locale used with the MusicID and MusicID -File libraries.
+    */
     kLocaleGroupMusic,
+    
+    /**
+    * Locale group for the GNSDK video products. Set this when creating a locale used with the VideoID or Video Explore libraries (or both).
+    */
     kLocaleGroupVideo,
+    
+    /**
+    * Locale group for the GNSDK Playlist product. Set this when creating a locale used with the Playlist library.
+    */
     kLocaleGroupPlaylist,
-    kLocaleGroupEpg
+    
+    /**
+    * Locale group for the GNSDK EPG product. Set this when creating a locale used with the EPG library.
+    */
+    kLocaleGroupEpg,
+    
+    /**
+    * Locale group for the GNSDK ACR products. Set this when creating a locale used with the ACR library.
+    * Additionally, this will set the locale value for the MusicID, VideoID, VideoExplore and EPG libraries
+    * since those libraries are used by the ACR product.
+    *
+    * <p><b>Remarks:</b></p>
+    * If kLocaleGroupAcr is set <i>after</i> kLocaleGroupMusic, kLocaleGroupVideo or kLocaleGroupEpg is set, then kLocaleGroupAcr
+    * will override any previous locale settings used with the MusicID, VideoID/VideoExplore and EPG libraries, and set the locale
+    * for all of those libraries to the same locale value.
+    *
+    * If kLocaleGroupMusic, kLocaleGroupVideo or kLocaleGroupEpg is set <i>after</i> kLocaleGroupAcr is set, then it will override
+    * the locale value previously set by kLocaleGroupAcr for the MusicID, VideoID/VideoExplore or EPG libraries, respectively.
+    */
+    kLocaleGroupAcr
 } ;
 
 
@@ -1329,6 +1416,7 @@ typedef NS_ENUM(NSInteger,GnLogPackageType)
     kLogPackageLookupLocal,
     kLogPackageLookupFPLocal,
     kLogPackageLookupLocalStream,
+    kLogPackageLookupLocalStream2,
     kLogPackageEDBInstall,
     kLogPackageMoodGrid,
     kLogPackageCorrelates,
