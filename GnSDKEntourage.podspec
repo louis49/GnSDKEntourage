@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name     = 'GnSDKEntourage'
-s.version  = '2.2.0.3162'
+s.version  = '2.3.1.3682'
 s.platform = :ios, '8.0'
 s.summary  = '.'
 s.author   = { 'DESNOS Benoît' => 'desnos.benoit@gmail.com' }
